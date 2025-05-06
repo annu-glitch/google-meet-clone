@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Or Join Meeting</title>
+    <link rel="stylesheet" href="public/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="public/Assets/css/style.css">
+
+</head>
+<body style="padding-top: 3.5rem;">
+    <nav class="navbar navbar-expand-md fixed-top">
+        <img src="public/assets/images/google-meet-icon.png" class="logo" alt="">
+        <a href="#" class="navbar-brand text-dark">Google Meet</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">At a glance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">How it works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Plan and Price</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item sign-in display-center">
+                    <a href="#" class="nav-link">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-secondary btn-lg text-info font-weight-bold join-meeting" >Join the meeting</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-lg btn-info text-light font-weight-bold new-meeting">Start a meeting</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="jumbotron h-100 d-flex">
+            <div class="container w-50">
+                <h1 style="font-size: 3rem;"> Premium video meeting. Now it is available for free to everyone. </h1>
+                <p style="font-size: 20px;">
+                    We're redesigning the Google Meet service for secure business meetings and making it free for everyone to use.
+                </p>
+                <ul class="display-center justify-content-start" >
+                    <li style="padding: 0;">
+                        <button class="btn btn-lg text-light font-weight-bold display-center new-meeting" style="background-color: #01796b;"><span class="material-icons mr-2">video_call</span>New Meeting</button>
+                    </li>
+                    <li class="pl-3">
+                        <button class="btn btn-lg btn-outline-secondary text-dark font-weight-bold display-center" style="background-color: #ffffff;"><span class="material-icons mr-2">keyboard</span><input type="text" placeholder="Enter a code" style="border: none;" class="enter-code"></button>
+                    </li>
+                    <li class="text-dark font-weight-bold cursor-pointer pl-2 join-action">Join</li>
+                </ul>
+            </div>
+            <div class="container w-50">
+                <img src="public/Assets/images/google-meet-people.jpg" alt="" class="signin-image">
+            </div>
+        </div>
+    </main>
+    <footer class="container"><h6>Learn more about <span class="learn-more text-info">google meet</span> .</h6></footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(document).on("click", ".join-meeting", function(){
+                $(".enter-code").focus();
+            })
+            $(document).on("click", ".join-action", function(){
+                var join_value = $('.enter-code').val();
+                var meetingUrl = window.location.origin+"?meetingID="+join_value;
+                window.location.replace(meetingUrl);
+            })
+            $(document).on("click", ".new-meeting", function(){
+               var eight_d_value = Math.floor(Math.random()*100000000);
+                var meetingUrl = window.location.origin+"?meetingID="+eight_d_value;
+                window.location.replace(meetingUrl);
+            })
+
+        })
+    </script>
+</body>
+</html>
